@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,30 +8,33 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
 
-  <!-- HEADER -->
   <header class="sticky-top bg-body border-bottom">
     <nav class="navbar navbar-expand-lg container-fluid px-4 px-lg-5">
       <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
         <i class="fa-solid fa-leaf text-primary"></i> EcoTrend
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menu">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menu">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav mx-lg-auto gap-lg-2">
           <li class="nav-item"><a class="nav-link active text-secondary" href="index.html">Início</a></li>
-          <li class="nav-item"><a class="nav-link" href="categorias.html">Categorias</a></li>
+          <li class="nav-item"><a class="nav-link" href="categoria.html">Categorias</a></li>
           <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
           <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
         </ul>
@@ -38,10 +42,10 @@
     </nav>
   </header>
 
-  <!-- BANNER / CARROSSEL -->
   <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+        aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
     </div>
 
@@ -82,7 +86,6 @@
     </button>
   </div>
 
-  <!-- VALOR / BENEFÍCIOS (CSS Grid) -->
   <section class="perks-grid container-fluid px-4 px-lg-5 py-4 bg-body border-bottom">
     <div class="d-flex align-items-center gap-3">
       <i class="fa-solid fa-truck-fast fs-4 text-secondary"></i>
@@ -113,8 +116,6 @@
       </div>
     </div>
   </section>
-
-  <!-- PRODUTOS -->
   <main id="produtos" class="container-fluid px-4 px-lg-5">
 
     <section id="roupas" class="py-5">
@@ -123,7 +124,8 @@
           <span class="text-uppercase small fw-bold text-primary">Categoria</span>
           <h2 class="h3 mb-0">Roupas &amp; Acessórios</h2>
         </div>
-        <a href="categorias.html" class="link-secondary fw-semibold text-decoration-none">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="categoria.html" class="link-secondary fw-semibold text-decoration-none">Ver todos <i
+            class="fa-solid fa-arrow-right"></i></a>
       </div>
 
       <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
@@ -133,6 +135,12 @@
             <div class="card-body">
               <h3 class="h6">Camiseta de Algodão Orgânico</h3>
               <p class="product-price mb-3">R$ 89,90</p>
+              <button type="button" class="btn btn-outline-primary btn-sm w-100 btn-ver-detalhes" data-bs-toggle="modal"
+                data-bs-target="#produtoModal" data-nome="Camiseta de Algodão Orgânico" data-preco="R$ 89,90"
+                data-img="img/Camiseta de Algodão Orgânico.png"
+                data-descricao="Camiseta feita 100% em algodão orgânico, cultivado sem agrotóxicos. Tecido macio, corte reto e tingimento natural, com baixo impacto ambiental do plantio à confecção.">
+                Ver detalhes
+              </button>
             </div>
           </div>
         </div>
@@ -143,6 +151,12 @@
             <div class="card-body">
               <h3 class="h6">Bolsa de Juta Trançada</h3>
               <p class="product-price mb-3">R$ 119,00</p>
+              <button type="button" class="btn btn-outline-primary btn-sm w-100 btn-ver-detalhes" data-bs-toggle="modal"
+                data-bs-target="#produtoModal" data-nome="Bolsa de Juta Trançada" data-preco="R$ 119,00"
+                data-img="img/Bolsa de Juta Trançada.jpg"
+                data-descricao="Bolsa artesanal trançada em fibra de juta, com alças de madeira reflorestada. Resistente, espaçosa e produzida por cooperativas locais.">
+                Ver detalhes
+              </button>
             </div>
           </div>
         </div>
@@ -153,6 +167,12 @@
             <div class="card-body">
               <h3 class="h6">Tênis de Material Reciclado</h3>
               <p class="product-price mb-3">R$ 249,90</p>
+              <button type="button" class="btn btn-outline-primary btn-sm w-100 btn-ver-detalhes" data-bs-toggle="modal"
+                data-bs-target="#produtoModal" data-nome="Tênis de Material Reciclado" data-preco="R$ 249,90"
+                data-img="img/Tênis de Material Reciclado.jpg"
+                data-descricao="Tênis com cabedal feito de garrafas PET recicladas, palmilha em PU biodegradável e solado de borracha reciclada. Leve, confortável e de baixo impacto.">
+                Ver detalhes
+              </button>
             </div>
           </div>
         </div>
@@ -163,6 +183,12 @@
             <div class="card-body">
               <h3 class="h6">Cachecol de Linho Natural</h3>
               <p class="product-price mb-3">R$ 74,90</p>
+              <button type="button" class="btn btn-outline-primary btn-sm w-100 btn-ver-detalhes" data-bs-toggle="modal"
+                data-bs-target="#produtoModal" data-nome="Cachecol de Linho Natural" data-preco="R$ 74,90"
+                data-img="img/Cachecol de Linho Natural.png"
+                data-descricao="Cachecol tecido em linho 100% natural, leve para o dia a dia e produzido com corantes de baixo impacto ambiental.">
+                Ver detalhes
+              </button>
             </div>
           </div>
         </div>
@@ -175,7 +201,8 @@
           <span class="text-uppercase small fw-bold text-primary">Categoria</span>
           <h2 class="h3 mb-0">Beleza &amp; Cuidados Naturais</h2>
         </div>
-        <a href="categorias.html" class="link-secondary fw-semibold text-decoration-none">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="categoria.html" class="link-secondary fw-semibold text-decoration-none">Ver todos <i
+            class="fa-solid fa-arrow-right"></i></a>
       </div>
 
       <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
@@ -185,6 +212,12 @@
             <div class="card-body">
               <h3 class="h6">Sabonete Natural de Lavanda</h3>
               <p class="product-price mb-3">R$ 24,90</p>
+              <button type="button" class="btn btn-outline-primary btn-sm w-100 btn-ver-detalhes" data-bs-toggle="modal"
+                data-bs-target="#produtoModal" data-nome="Sabonete Natural de Lavanda" data-preco="R$ 24,90"
+                data-img="img/Sabonete Natural de Lavanda.png"
+                data-descricao="Sabonete artesanal em barra, feito com óleo de lavanda e ingredientes naturais. Livre de parabenos e não testado em animais.">
+                Ver detalhes
+              </button>
             </div>
           </div>
         </div>
@@ -195,6 +228,12 @@
             <div class="card-body">
               <h3 class="h6">Shampoo Sólido sem Embalagem</h3>
               <p class="product-price mb-3">R$ 39,90</p>
+              <button type="button" class="btn btn-outline-primary btn-sm w-100 btn-ver-detalhes" data-bs-toggle="modal"
+                data-bs-target="#produtoModal" data-nome="Shampoo Sólido sem Embalagem" data-preco="R$ 39,90"
+                data-img="img/Shampoo Sólido sem Embalagem.png"
+                data-descricao="Shampoo em barra, sem embalagem plástica, rende o equivalente a 2 frascos líquidos. Ideal para reduzir resíduos no banheiro.">
+                Ver detalhes
+              </button>
             </div>
           </div>
         </div>
@@ -205,6 +244,12 @@
             <div class="card-body">
               <h3 class="h6">Óleo Corporal de Coco</h3>
               <p class="product-price mb-3">R$ 54,90</p>
+              <button type="button" class="btn btn-outline-primary btn-sm w-100 btn-ver-detalhes" data-bs-toggle="modal"
+                data-bs-target="#produtoModal" data-nome="Óleo Corporal de Coco" data-preco="R$ 54,90"
+                data-img="img/Óleo Corporal de Coco.png"
+                data-descricao="Óleo corporal hidratante à base de coco prensado a frio, sem parabenos. Absorção rápida e aroma suave.">
+                Ver detalhes
+              </button>
             </div>
           </div>
         </div>
@@ -215,6 +260,12 @@
             <div class="card-body">
               <h3 class="h6">Escova de Dente de Bambu</h3>
               <p class="product-price mb-3">R$ 14,90</p>
+              <button type="button" class="btn btn-outline-primary btn-sm w-100 btn-ver-detalhes" data-bs-toggle="modal"
+                data-bs-target="#produtoModal" data-nome="Escova de Dente de Bambu" data-preco="R$ 14,90"
+                data-img="img/Escova de Dente de Bambu.png"
+                data-descricao="Escova de dente com cabo de bambu biodegradável, alternativa ao plástico convencional. Cerdas macias, indicadas para uso diário.">
+                Ver detalhes
+              </button>
             </div>
           </div>
         </div>
@@ -223,7 +274,6 @@
 
   </main>
 
-  <!-- CTA CONTATO -->
   <section class="bg-primary text-white py-5">
     <div class="container-fluid px-4 px-lg-5 d-flex flex-wrap align-items-center justify-content-between gap-4">
       <div>
@@ -233,25 +283,26 @@
       <a href="contato.html" class="btn btn-light btn-lg rounded-pill">Entre em contato</a>
     </div>
   </section>
-
-  <!-- FOOTER -->
   <footer class="bg-dark text-white-50 pt-5">
     <div class="container-fluid px-4 px-lg-5">
       <div class="row gy-4 pb-4">
-
         <div class="col-lg-4 col-md-6">
           <a class="navbar-brand text-white d-inline-flex align-items-center gap-2 mb-3" href="index.html">
             <i class="fa-solid fa-leaf text-primary"></i> EcoTrend
           </a>
-          <p class="mb-3" style="max-width: 34ch;">Moda e beleza com consciência. Um estilo de vida mais sustentável começa nas suas escolhas.</p>
+          <p class="mb-3" style="max-width: 34ch;">Moda e beleza com consciência. Um estilo de vida mais sustentável
+            começa nas suas escolhas.</p>
           <div class="d-flex gap-2">
-            <a href="#" class="btn btn-outline-light btn-sm icon-btn rounded-circle" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm icon-btn rounded-circle" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm icon-btn rounded-circle" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm icon-btn rounded-circle" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm icon-btn rounded-circle" aria-label="Instagram"><i
+                class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm icon-btn rounded-circle" aria-label="Facebook"><i
+                class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm icon-btn rounded-circle" aria-label="TikTok"><i
+                class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm icon-btn rounded-circle" aria-label="Pinterest"><i
+                class="fa-brands fa-pinterest-p"></i></a>
           </div>
         </div>
-
         <div class="col-lg-2 col-md-6">
           <h4 class="h6 text-white mb-3">Institucional</h4>
           <ul class="list-unstyled d-flex flex-column gap-2">
@@ -261,7 +312,6 @@
             <li><a href="#" class="link-light text-decoration-none">Trabalhe conosco</a></li>
           </ul>
         </div>
-
         <div class="col-lg-2 col-md-6">
           <h4 class="h6 text-white mb-3">Ajuda</h4>
           <ul class="list-unstyled d-flex flex-column gap-2">
@@ -270,7 +320,6 @@
             <li><a href="#" class="link-light text-decoration-none">Prazo de entrega</a></li>
           </ul>
         </div>
-
         <div class="col-lg-2 col-md-6">
           <h4 class="h6 text-white mb-3">Políticas</h4>
           <ul class="list-unstyled d-flex flex-column gap-2">
@@ -279,21 +328,45 @@
             <li><a href="#" class="link-light text-decoration-none">Política de cookies</a></li>
           </ul>
         </div>
-
         <div class="col-lg-2 col-md-6">
           <h4 class="h6 text-white mb-3">Contato</h4>
           <p class="mb-3">Tem alguma dúvida? Fale com a gente.</p>
           <a href="contato.html" class="btn btn-outline-light btn-sm">Entre em contato</a>
         </div>
-
       </div>
-
       <div class="text-center py-3 border-top border-secondary-subtle small">
         <p class="mb-0">&copy; 2026 EcoTrend. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
 
+  <!-- MODAL DE DETALHES DO PRODUTO -->
+  <div class="modal fade" id="produtoModal" tabindex="-1" aria-labelledby="produtoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h2 class="modal-title h5" id="produtoModalLabel">Detalhes do produto</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-6">
+              <img id="modalProdutoImg" src="" alt="" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6">
+              <h3 id="modalProdutoNome" class="h4 mb-2"></h3>
+              <p id="modalProdutoPreco" class="product-price fs-5 mb-3"></p>
+              <p id="modalProdutoDescricao" class="text-body-secondary"></p>
+              <button type="button" class="btn btn-primary rounded-pill mt-2">Adicionar ao Carrinho</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/produto.js"></script>
 </body>
+
 </html>
