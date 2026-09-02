@@ -1,0 +1,64 @@
+.contact-hero {
+  position: relative;
+  padding: 3.5rem 0 4rem;
+  background-color: var(--bs-dark);
+  background-image:
+    linear-gradient(120deg, rgba(47, 61, 41, 0.92), rgba(92, 122, 92, 0.75)),
+    url('../img/Carrosel_sobre_roupa.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* CARDS */
+
+.contact-info-card,
+.contact-form-card {
+  background: #fff;
+  border: 1px solid rgba(43, 46, 40, 0.08);
+  border-radius: var(--bs-border-radius-lg);
+  padding: 2rem;
+}
+
+.contact-info-card {
+  background: #f3efe4;
+}
+
+/* FORMULÁRIO */
+
+.contact-form-card .form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.contact-form-card .form-control,
+.contact-form-card .form-select {
+  border-radius: var(--bs-border-radius-sm);
+  border-color: rgba(43, 46, 40, 0.18);
+  padding-block: 0.6rem;
+}
+
+.contact-form-card .form-control:focus,
+.contact-form-card .form-select:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.18);
+}
+
+.contact-form-card .form-check-input:checked {
+  background-color: var(--bs-secondary);
+  border-color: var(--bs-secondary);
+}
+
+/* estados de validação Bootstrap */
+.was-validated .form-control:invalid,
+.was-validated .form-select:invalid {
+  border-color: #b3492f;
+}
+
+.was-validated .form-control:valid,
+.was-validated .form-select:valid {
+  border-color: var(--bs-secondary);
+}
+
+#formStatus {
+  color: var(--bs-secondary) !important;
+}
