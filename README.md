@@ -242,3 +242,5 @@ Durante o desenvolvimento foram aplicados conhecimentos relacionados a:
 * **João Cruz** - RM 571827
 * **Kaue Herculano** - RM 570699
 * **Lucca Bragga** - RM 571044
+---
+* 🚀 **Deploy na Vercel:** [Acesse o EcoTrend Online](https://cp-4-front-n06o4ml12-messiasmacedo.vercel.app)
