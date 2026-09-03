@@ -37,9 +37,15 @@
                     <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
                     <li class="nav-item"><a class="nav-link active text-secondary" href="categorias.html">Categorias</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#produtos">Produtos</a></li>
                     <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
                 </ul>
+
+                <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+                    <a href="#" class="nav-icon position-relative" aria-label="Carrinho de compras">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        <span class="cart-badge">0</span>
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
@@ -48,11 +54,10 @@
         <div class="container-fluid px-4 px-lg-5">
             <span class="text-uppercase small fw-semibold text-white-50">Encontre o que precisa</span>
             <h1 class="text-white mb-2">Categorias</h1>
-            <p class="text-white-75 mb-0" style="max-width: 46ch;">Roupas, beleza e casa com escolhas mais conscientes
-                para o dia a dia.</p>
+            <p class="text-white-75 mb-0" style="max-width: 46ch;">Roupas, beleza, casa e tecnologia com escolhas mais
+                conscientes para o dia a dia.</p>
         </div>
     </section>
-
 
     <main>
         <section class="container-fluid px-4 px-lg-5 py-5">
@@ -61,20 +66,23 @@
                 <!-- FILTROS -->
                 <aside class="col-lg-3">
                     <div class="filtros-card h-100">
-                        <h2 class="h5 mb-4">Filtros</h2>
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <h2 class="h5 mb-0">Filtros</h2>
+                            <button type="button" id="limparFiltros" class="btn btn-sm btn-link text-secondary p-0">Limpar</button>
+                        </div>
 
                         <div class="mb-4">
                             <h3 class="h6 mb-2">Preço</h3>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="preco1">
+                                <input class="form-check-input filtro-preco" type="checkbox" value="0-50" id="preco1">
                                 <label class="form-check-label" for="preco1">Até R$ 50</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="preco2">
+                                <input class="form-check-input filtro-preco" type="checkbox" value="50-150" id="preco2">
                                 <label class="form-check-label" for="preco2">R$ 50 a R$ 150</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="preco3">
+                                <input class="form-check-input filtro-preco" type="checkbox" value="150-9999" id="preco3">
                                 <label class="form-check-label" for="preco3">Acima de R$ 150</label>
                             </div>
                         </div>
@@ -82,102 +90,294 @@
                         <div class="mb-4">
                             <h3 class="h6 mb-2">Tipo de produto</h3>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="tipo1">
-                                <label class="form-check-label" for="tipo1">Roupas</label>
+                                <input class="form-check-input filtro-tipo" type="checkbox" value="roupas" id="tipo1">
+                                <label class="form-check-label" for="tipo1">Roupas &amp; Acessórios</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="tipo2">
-                                <label class="form-check-label" for="tipo2">Beleza</label>
+                                <input class="form-check-input filtro-tipo" type="checkbox" value="beleza" id="tipo2">
+                                <label class="form-check-label" for="tipo2">Beleza &amp; Cuidados Naturais</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="tipo3">
-                                <label class="form-check-label" for="tipo3">Casa</label>
+                                <input class="form-check-input filtro-tipo" type="checkbox" value="casa" id="tipo3">
+                                <label class="form-check-label" for="tipo3">Casa Sustentável</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input filtro-tipo" type="checkbox" value="tecnologia" id="tipo4">
+                                <label class="form-check-label" for="tipo4">Tecnologia Verde</label>
                             </div>
                         </div>
 
                         <div>
                             <h3 class="h6 mb-2">Marca</h3>
-                            <select class="form-select" id="marca">
+                            <select class="form-select" id="filtro-marca">
                                 <option value="" selected>Todas as marcas</option>
-                                <option value="marca1">EcoTrend Basics</option>
-                                <option value="marca2">Verde Natural</option>
-                                <option value="marca3">Raiz</option>
+                                <option value="EcoTrend Basics">EcoTrend Basics</option>
+                                <option value="Verde Natural">Verde Natural</option>
+                                <option value="Raiz">Raiz</option>
                             </select>
                         </div>
                     </div>
                 </aside>
 
-
                 <div class="col-lg-9">
-                    <div class="row g-4">
+                    <p id="resultadoContagem" class="text-body-secondary small mb-3"></p>
 
-                        <div class="col-md-4">
+                    <div class="row g-4" id="gradeProdutos">
+
+                        <!-- ROUPAS & ACESSÓRIOS -->
+                        <div class="col-md-4 produto-item" data-tipo="roupas" data-preco="89.90" data-marca="EcoTrend Basics">
                             <div class="card produto-card h-100">
+                                <img src="img/Camiseta de Algodão Orgânico.png" class="card-img-top" alt="Camiseta de algodão orgânico">
                                 <div class="card-body d-flex flex-column">
-                                    <h3 class="h6 card-title">Camiseta Orgânica</h3>
-                                    <p class="card-text fw-semibold mb-3">R$ 89,90</p>
-                                    <button class="btn btn-primary mt-auto">Adicionar ao Carrinho</button>
+                                    <span class="badge-categoria">Roupas</span>
+                                    <h3 class="h6 card-title mt-2">Camiseta de Algodão Orgânico</h3>
+                                    <p class="card-text product-price mb-3">R$ 89,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=camiseta-algodao-organico" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 produto-item" data-tipo="roupas" data-preco="119.00" data-marca="Verde Natural">
                             <div class="card produto-card h-100">
+                                <img src="img/Bolsa de Juta Trançada.jpg" class="card-img-top" alt="Bolsa de juta trançada">
                                 <div class="card-body d-flex flex-column">
-                                    <h3 class="h6 card-title">Sabonete Natural</h3>
-                                    <p class="card-text fw-semibold mb-3">R$ 24,90</p>
-                                    <button class="btn btn-primary mt-auto">Adicionar ao Carrinho</button>
+                                    <span class="badge-categoria">Roupas</span>
+                                    <h3 class="h6 card-title mt-2">Bolsa de Juta Trançada</h3>
+                                    <p class="card-text product-price mb-3">R$ 119,00</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=bolsa-juta-trancada" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 produto-item" data-tipo="roupas" data-preco="249.90" data-marca="Raiz">
                             <div class="card produto-card h-100">
+                                <img src="img/Tênis de Material Reciclado.jpg" class="card-img-top" alt="Tênis de material reciclado">
                                 <div class="card-body d-flex flex-column">
-                                    <h3 class="h6 card-title">Vaso de Cerâmica</h3>
-                                    <p class="card-text fw-semibold mb-3">R$ 129,90</p>
-                                    <button class="btn btn-primary mt-auto">Adicionar ao Carrinho</button>
+                                    <span class="badge-categoria">Roupas</span>
+                                    <h3 class="h6 card-title mt-2">Tênis de Material Reciclado</h3>
+                                    <p class="card-text product-price mb-3">R$ 249,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=tenis-material-reciclado" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 produto-item" data-tipo="roupas" data-preco="74.90" data-marca="EcoTrend Basics">
                             <div class="card produto-card h-100">
+                                <img src="img/Cachecol de Linho Natural.png" class="card-img-top" alt="Cachecol de linho natural">
                                 <div class="card-body d-flex flex-column">
-                                    <h3 class="h6 card-title">Calça de Linho</h3>
-                                    <p class="card-text fw-semibold mb-3">R$ 159,90</p>
-                                    <button class="btn btn-primary mt-auto">Adicionar ao Carrinho</button>
+                                    <span class="badge-categoria">Roupas</span>
+                                    <h3 class="h6 card-title mt-2">Cachecol de Linho Natural</h3>
+                                    <p class="card-text product-price mb-3">R$ 74,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=cachecol-linho-natural" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <!-- BELEZA & CUIDADOS NATURAIS -->
+                        <div class="col-md-4 produto-item" data-tipo="beleza" data-preco="24.90" data-marca="Verde Natural">
                             <div class="card produto-card h-100">
+                                <img src="img/Sabonete Natural de Lavanda.png" class="card-img-top" alt="Sabonete natural de lavanda">
                                 <div class="card-body d-flex flex-column">
-                                    <h3 class="h6 card-title">Óleo Corporal</h3>
-                                    <p class="card-text fw-semibold mb-3">R$ 39,90</p>
-                                    <button class="btn btn-primary mt-auto">Adicionar ao Carrinho</button>
+                                    <span class="badge-categoria">Beleza</span>
+                                    <h3 class="h6 card-title mt-2">Sabonete Natural de Lavanda</h3>
+                                    <p class="card-text product-price mb-3">R$ 24,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=sabonete-lavanda" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 produto-item" data-tipo="beleza" data-preco="39.90" data-marca="Verde Natural">
                             <div class="card produto-card h-100">
+                                <img src="img/Shampoo Sólido sem Embalagem.png" class="card-img-top" alt="Shampoo sólido sem embalagem">
                                 <div class="card-body d-flex flex-column">
-                                    <h3 class="h6 card-title">Almofada de Algodão</h3>
-                                    <p class="card-text fw-semibold mb-3">R$ 69,90</p>
-                                    <button class="btn btn-primary mt-auto">Adicionar ao Carrinho</button>
+                                    <span class="badge-categoria">Beleza</span>
+                                    <h3 class="h6 card-title mt-2">Shampoo Sólido sem Embalagem</h3>
+                                    <p class="card-text product-price mb-3">R$ 39,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=shampoo-solido" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 produto-item" data-tipo="beleza" data-preco="54.90" data-marca="Verde Natural">
+                            <div class="card produto-card h-100">
+                                <img src="img/Óleo Corporal de Coco.png" class="card-img-top" alt="Óleo corporal de coco">
+                                <div class="card-body d-flex flex-column">
+                                    <span class="badge-categoria">Beleza</span>
+                                    <h3 class="h6 card-title mt-2">Óleo Corporal de Coco</h3>
+                                    <p class="card-text product-price mb-3">R$ 54,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=oleo-corporal-coco" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 produto-item" data-tipo="beleza" data-preco="14.90" data-marca="EcoTrend Basics">
+                            <div class="card produto-card h-100">
+                                <img src="img/Escova de Dente de Bambu.png" class="card-img-top" alt="Escova de dente de bambu">
+                                <div class="card-body d-flex flex-column">
+                                    <span class="badge-categoria">Beleza</span>
+                                    <h3 class="h6 card-title mt-2">Escova de Dente de Bambu</h3>
+                                    <p class="card-text product-price mb-3">R$ 14,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=escova-bambu" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CASA SUSTENTÁVEL -->
+                        <div class="col-md-4 produto-item" data-tipo="casa" data-preco="44.90" data-marca="Raiz">
+                            <div class="card produto-card h-100">
+                                <img src="img/Kit de Talheres de Bambu.jpg" class="card-img-top" alt="Kit de talheres de bambu">
+                                <div class="card-body d-flex flex-column">
+                                    <span class="badge-categoria">Casa</span>
+                                    <h3 class="h6 card-title mt-2">Kit de Talheres de Bambu</h3>
+                                    <p class="card-text product-price mb-3">R$ 44,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=kit-talheres-bambu" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 produto-item" data-tipo="casa" data-preco="19.90" data-marca="Raiz">
+                            <div class="card produto-card h-100">
+                                <img src="img/Esponja de Louça Biodegradável.png" class="card-img-top" alt="Esponja de louça biodegradável">
+                                <div class="card-body d-flex flex-column">
+                                    <span class="badge-categoria">Casa</span>
+                                    <h3 class="h6 card-title mt-2">Esponja de Louça Biodegradável</h3>
+                                    <p class="card-text product-price mb-3">R$ 19,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=esponja-biodegradavel" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 produto-item" data-tipo="casa" data-preco="59.90" data-marca="Raiz">
+                            <div class="card produto-card h-100">
+                                <img src="img/Vela Aromática de Soja.png" class="card-img-top" alt="Vela aromática de soja">
+                                <div class="card-body d-flex flex-column">
+                                    <span class="badge-categoria">Casa</span>
+                                    <h3 class="h6 card-title mt-2">Vela Aromática de Soja</h3>
+                                    <p class="card-text product-price mb-3">R$ 59,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=vela-soja" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 produto-item" data-tipo="casa" data-preco="34.90" data-marca="EcoTrend Basics">
+                            <div class="card produto-card h-100">
+                                <img src="img/Sacola de Compras Retornável.png" class="card-img-top" alt="Sacola de compras retornável">
+                                <div class="card-body d-flex flex-column">
+                                    <span class="badge-categoria">Casa</span>
+                                    <h3 class="h6 card-title mt-2">Sacola de Compras Retornável</h3>
+                                    <p class="card-text product-price mb-3">R$ 34,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=sacola-retornavel" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TECNOLOGIA VERDE -->
+                        <div class="col-md-4 produto-item" data-tipo="tecnologia" data-preco="189.90" data-marca="EcoTrend Basics">
+                            <div class="card produto-card h-100">
+                                <img src="img/Carregador solar.jpg" class="card-img-top" alt="Carregador solar portátil">
+                                <div class="card-body d-flex flex-column">
+                                    <span class="badge-categoria">Tecnologia</span>
+                                    <h3 class="h6 card-title mt-2">Carregador Solar Portátil</h3>
+                                    <p class="card-text product-price mb-3">R$ 189,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=carregador-solar" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 produto-item" data-tipo="tecnologia" data-preco="159.90" data-marca="Raiz">
+                            <div class="card produto-card h-100">
+                                <img src="img/fone de ouvido reciclado.jpg" class="card-img-top" alt="Fone de ouvido reciclado">
+                                <div class="card-body d-flex flex-column">
+                                    <span class="badge-categoria">Tecnologia</span>
+                                    <h3 class="h6 card-title mt-2">Fone de Ouvido Reciclado</h3>
+                                    <p class="card-text product-price mb-3">R$ 159,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=fone-reciclado" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 produto-item" data-tipo="tecnologia" data-preco="129.90" data-marca="EcoTrend Basics">
+                            <div class="card produto-card h-100">
+                                <img src="img/Garrafa Térmica Inteligente.png" class="card-img-top" alt="Garrafa térmica inteligente">
+                                <div class="card-body d-flex flex-column">
+                                    <span class="badge-categoria">Tecnologia</span>
+                                    <h3 class="h6 card-title mt-2">Garrafa Térmica Inteligente</h3>
+                                    <p class="card-text product-price mb-3">R$ 129,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=garrafa-inteligente" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 produto-item" data-tipo="tecnologia" data-preco="99.90" data-marca="Verde Natural">
+                            <div class="card produto-card h-100">
+                                <img src="img/Powerbank com Case de Bambu.png" class="card-img-top" alt="Powerbank com case de bambu">
+                                <div class="card-body d-flex flex-column">
+                                    <span class="badge-categoria">Tecnologia</span>
+                                    <h3 class="h6 card-title mt-2">Powerbank com Case de Bambu</h3>
+                                    <p class="card-text product-price mb-3">R$ 99,90</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="detalhes-produto.html?produto=powerbank-bambu" class="btn btn-outline-secondary btn-sm flex-fill">Ver detalhes</a>
+                                        <button class="btn btn-primary btn-sm flex-fill">Adicionar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
+
+                    <p id="semResultados" class="text-body-secondary text-center py-5 d-none">
+                        Nenhum produto encontrado com os filtros selecionados.
+                    </p>
                 </div>
 
             </div>
         </section>
     </main>
-
 
     <footer class="bg-dark text-white-50 pt-5">
         <div class="container-fluid px-4 px-lg-5">
@@ -187,8 +387,8 @@
                     <a class="navbar-brand text-white d-inline-flex align-items-center gap-2 mb-3" href="index.html">
                         <i class="fa-solid fa-leaf text-primary"></i> EcoTrend
                     </a>
-                    <p class="mb-3" style="max-width: 34ch;">Moda e beleza com consciência. Um estilo de vida mais
-                        sustentável começa nas suas escolhas.</p>
+                    <p class="mb-3" style="max-width: 34ch;">Moda, beleza, casa e tecnologia com consciência. Um estilo
+                        de vida mais sustentável começa nas suas escolhas.</p>
                     <div class="d-flex gap-2">
                         <a href="#" class="btn btn-outline-light btn-sm icon-btn rounded-circle"
                             aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -244,6 +444,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/categorias.js"></script>
 </body>
 
 </html>

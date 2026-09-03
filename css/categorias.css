@@ -1,60 +1,20 @@
-body {
-    font-family: 'Work Sans', sans-serif;
-    color: #333333;
-}
-
-
-h1,
-h2,
-h3,
-h4 {
-    font-family: 'Fraunces', serif;
-}
-
 .categorias-hero {
-    background-color: #c9713f;
+    background: linear-gradient(120deg, var(--bs-primary), #8a4f2c);
     padding: 60px 0;
 }
-.text-white-75 {
-    color: rgba(255, 255, 255, 0.75);
-}
+
 .filtros-card {
-    background-color: #f8f9fa;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
+    background: var(--bs-body-tertiary, #f8f9fa);
+    border: 1px solid rgba(43, 46, 40, 0.1);
+    border-radius: var(--bs-border-radius-lg);
     padding: 25px;
 }
 
-.produto-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
 .produto-card img {
-    height: 220px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
 }
 
-.icon-btn {
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.text-primary {
-    color: #c9713f !important;
-}
-
-.btn-primary {
-    background-color: #c9713f;
-    border-color: #c9713f;
-}
-
-.btn-primary:hover {
-    background-color: #b3612f;
-    border-color: #b3612f;
+#resultadoContagem {
+    font-weight: 600;
 }

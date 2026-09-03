@@ -1,0 +1,178 @@
+const PRODUTOS = {
+  'camiseta-algodao-organico': {
+    nome: 'Camiseta de Algodão Orgânico',
+    categoria: 'roupas',
+    categoriaLabel: 'Roupas & Acessórios',
+    preco: 'R$ 89,90',
+    imagem: 'img/Camiseta de Algodão Orgânico.png',
+    descricao: [
+      'Camiseta feita 100% em algodão orgânico, cultivado sem agrotóxicos. Tecido macio, corte reto e tingimento natural, com baixo impacto ambiental do plantio à confecção.',
+      'Disponível nos tamanhos P, M, G e GG. Cada peça vem em embalagem reciclável e biodegradável.',
+    ],
+  },
+  'bolsa-juta-trancada': {
+    nome: 'Bolsa de Juta Trançada',
+    categoria: 'roupas',
+    categoriaLabel: 'Roupas & Acessórios',
+    preco: 'R$ 119,00',
+    imagem: 'img/Bolsa de Juta Trançada.jpg',
+    descricao: [
+      'Bolsa artesanal trançada em fibra de juta natural, um material biodegradável e de cultivo de baixo impacto ambiental.',
+      'Alças reforçadas e amplo espaço interno, ideal para o dia a dia.',
+    ],
+  },
+  'tenis-material-reciclado': {
+    nome: 'Tênis de Material Reciclado',
+    categoria: 'roupas',
+    categoriaLabel: 'Roupas & Acessórios',
+    preco: 'R$ 249,90',
+    imagem: 'img/Tênis de Material Reciclado.jpg',
+    descricao: [
+      'Tênis produzido com materiais reciclados, incluindo garrafas PET e borracha reaproveitada no solado.',
+      'Design leve e confortável, pensado para o uso diário com o menor impacto ambiental possível.',
+    ],
+  },
+  'cachecol-linho-natural': {
+    nome: 'Cachecol de Linho Natural',
+    categoria: 'roupas',
+    categoriaLabel: 'Roupas & Acessórios',
+    preco: 'R$ 74,90',
+    imagem: 'img/Cachecol de Linho Natural.png',
+    descricao: [
+      'Cachecol tecido em linho 100% natural, macio e respirável.',
+      'Produzido em pequenos lotes, com tingimento à base de pigmentos naturais.',
+    ],
+  },
+  'sabonete-lavanda': {
+    nome: 'Sabonete Natural de Lavanda',
+    categoria: 'beleza',
+    categoriaLabel: 'Beleza & Cuidados Naturais',
+    preco: 'R$ 24,90',
+    imagem: 'img/Sabonete Natural de Lavanda.png',
+    descricao: [
+      'Sabonete artesanal à base de óleos vegetais e extrato natural de lavanda, sem corantes ou parabenos.',
+      'Vegano e não testado em animais, com embalagem biodegradável.',
+    ],
+  },
+  'shampoo-solido': {
+    nome: 'Shampoo Sólido sem Embalagem',
+    categoria: 'beleza',
+    categoriaLabel: 'Beleza & Cuidados Naturais',
+    preco: 'R$ 39,90',
+    imagem: 'img/Shampoo Sólido sem Embalagem.png',
+    descricao: [
+      'Shampoo em barra, formulado sem sulfatos agressivos e sem embalagem plástica.',
+      'Rende o equivalente a até 2 frascos de shampoo líquido tradicional.',
+    ],
+  },
+  'oleo-corporal-coco': {
+    nome: 'Óleo Corporal de Coco',
+    categoria: 'beleza',
+    categoriaLabel: 'Beleza & Cuidados Naturais',
+    preco: 'R$ 54,90',
+    imagem: 'img/Óleo Corporal de Coco.png',
+    descricao: [
+      'Óleo hidratante 100% natural à base de coco prensado a frio.',
+      'Embalagem em vidro reutilizável, sem plástico de uso único.',
+    ],
+  },
+  'escova-bambu': {
+    nome: 'Escova de Dente de Bambu',
+    categoria: 'beleza',
+    categoriaLabel: 'Beleza & Cuidados Naturais',
+    preco: 'R$ 14,90',
+    imagem: 'img/Escova de Dente de Bambu.png',
+    descricao: [
+      'Escova de dente com cabo de bambu certificado, uma alternativa biodegradável ao plástico convencional.',
+      'Cerdas macias, indicadas para uso diário.',
+    ],
+  },
+  'kit-talheres-bambu': {
+    nome: 'Kit de Talheres de Bambu',
+    categoria: 'casa',
+    categoriaLabel: 'Casa Sustentável',
+    preco: 'R$ 44,90',
+    imagem: 'img/Kit de Talheres de Bambu.jpg',
+    descricao: [
+      'Kit com garfo, faca, colher e canudo reutilizável, todos em bambu natural.',
+      'Acompanha estojo de tecido para transporte, ideal para substituir descartáveis.',
+    ],
+  },
+  'esponja-biodegradavel': {
+    nome: 'Esponja de Louça Biodegradável',
+    categoria: 'casa',
+    categoriaLabel: 'Casa Sustentável',
+    preco: 'R$ 19,90',
+    imagem: 'img/Esponja de Louça Biodegradável.png',
+    descricao: [
+      'Esponja feita de fibra vegetal e celulose, 100% biodegradável.',
+      'Substitui esponjas sintéticas convencionais, que levam décadas para se decompor.',
+    ],
+  },
+  'vela-soja': {
+    nome: 'Vela Aromática de Soja',
+    categoria: 'casa',
+    categoriaLabel: 'Casa Sustentável',
+    preco: 'R$ 59,90',
+    imagem: 'img/Vela Aromática de Soja.png',
+    descricao: [
+      'Vela artesanal feita com cera de soja natural e óleos essenciais, sem parafina.',
+      'Pavio de algodão, sem chumbo, para uma queima limpa e mais longa.',
+    ],
+  },
+  'sacola-retornavel': {
+    nome: 'Sacola de Compras Retornável',
+    categoria: 'casa',
+    categoriaLabel: 'Casa Sustentável',
+    preco: 'R$ 34,90',
+    imagem: 'img/Sacola de Compras Retornável.png',
+    descricao: [
+      'Sacola resistente feita de tecido reaproveitado, pensada para substituir sacolas plásticas descartáveis.',
+      'Dobrável e compacta, cabe facilmente na bolsa ou mochila.',
+    ],
+  },
+  'carregador-solar': {
+    nome: 'Carregador Solar Portátil',
+    categoria: 'tecnologia',
+    categoriaLabel: 'Tecnologia Verde',
+    preco: 'R$ 189,90',
+    imagem: 'img/Carregador solar.jpg',
+    descricao: [
+      'Carregador portátil com painel solar integrado, ideal para recarregar dispositivos em qualquer lugar.',
+      'Bateria interna de longa duração e corpo resistente à água.',
+    ],
+  },
+  'fone-reciclado': {
+    nome: 'Fone de Ouvido Reciclado',
+    categoria: 'tecnologia',
+    categoriaLabel: 'Tecnologia Verde',
+    preco: 'R$ 159,90',
+    imagem: 'img/fone de ouvido reciclado.jpg',
+    descricao: [
+      'Fone de ouvido fabricado com plástico reciclado e materiais de baixo impacto ambiental.',
+      'Som de alta qualidade, com estojo de carregamento também produzido com material reciclado.',
+    ],
+  },
+  'garrafa-inteligente': {
+    nome: 'Garrafa Térmica Inteligente',
+    categoria: 'tecnologia',
+    categoriaLabel: 'Tecnologia Verde',
+    preco: 'R$ 129,90',
+    imagem: 'img/Garrafa Térmica Inteligente.png',
+    descricao: [
+      'Garrafa térmica com display de temperatura integrado, mantém bebidas quentes ou geladas por até 12 horas.',
+      'Corpo em aço inoxidável, livre de plástico de uso único.',
+    ],
+  },
+  'powerbank-bambu': {
+    nome: 'Powerbank com Case de Bambu',
+    categoria: 'tecnologia',
+    categoriaLabel: 'Tecnologia Verde',
+    preco: 'R$ 99,90',
+    imagem: 'img/Powerbank com Case de Bambu.png',
+    descricao: [
+      'Bateria portátil com case externo em bambu natural, reduzindo o uso de plástico na fabricação.',
+      'Compatível com celulares e demais dispositivos USB.',
+    ],
+  },
+};

@@ -22,6 +22,28 @@ h1, h2, h3, h4, .navbar-brand {
   font-family: 'Fraunces', Georgia, serif;
 }
 
+.nav-icon {
+  color: var(--bs-body-color);
+  font-size: 1.2rem;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--bs-primary);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
 
 .btn-primary {
   --bs-btn-bg: var(--bs-primary);
@@ -106,10 +128,41 @@ h1, h2, h3, h4, .navbar-brand {
   transform: translateY(-4px);
 }
 
+.product-card--compact .card-body {
+  padding: 0.75rem;
+}
+
+.product-card--compact h4 {
+  font-size: 0.8rem;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.product-card--compact .product-price {
+  font-size: 0.85rem;
+}
+
+.product-card--compact .btn {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.4rem;
+}
+
 .product-price {
   color: var(--bs-secondary);
   font-weight: 700;
   font-size: 1.05rem;
+}
+
+.badge-categoria {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--bs-secondary);
+  background: rgba(var(--bs-secondary-rgb), 0.12);
+  padding: 3px 10px;
+  border-radius: 999px;
 }
 
 /* FOOTER  */

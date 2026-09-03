@@ -1,0 +1,19 @@
+.produto-destaque-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.produto-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.produto-specs li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--bs-body-color);
+}
