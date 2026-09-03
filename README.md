@@ -1,4 +1,4 @@
-````markdown
+
 # 🌱 E-commerce EcoTrend - Front-End 
 
 ## 📖 Descrição do Projeto
